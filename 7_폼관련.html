@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>7_폼관련</title>
+    </head>
+    <body>
+        <h1>폼 관련 태그</h1>
+        <h3>form 태그</h3>
+        <ul>
+            <li>method(데이터 처리 방법) : get, post</li>
+            <li>action(데이터 처리 장소) : url</li>
+        </ul>
+
+        <form method="post" action="1_글자관련.html" >
+            <label>검색할 내용 : </label> <input type="text" name="search"/> <input type="submit" value="검색"/>
+        </form>
+        <br/><br/>
+
+        <h3>fieldset을 통한 form태그의 그룹핑</h3>
+        <h4>form 태그 내에서 작성</h4>
+        <form>
+            <fieldset>
+                <legend>필수 입력</legend>
+                <label>이름 : </label> <input type="text" name="userName"/>
+                <label>아이디 : </label> <input type="text" name="userId"/>
+                <label>비밀번호 : </label> <input type="text" name="userPwd"/>
+                <input type="submit" value="확인">
+            </fieldset>
+            
+            <fieldset>
+                <legend>선택 입력</legend>
+                <label>취미 : </label> <input type="text"/>
+                <label>별자리 : </label> <input type="text"/>
+                <label>혈액형 : </label> <input type="text"/>
+            </fieldset>
+        </form>
+        <br/><br/>
+
+        <h4>form 태그 밖에서 작성</h4>
+        <form action="1_글자관련.html" method="get" id="enroll">
+            <label>이름 : </label>
+            <input type="text" name="userName"/>
+            <input type="submit"/>
+        </form>
+
+        <fieldset form="enroll">
+            <legend>필수 입력</legend>
+            <label>아이디 : </label>
+            <input type="text" name="userId" form="enroll"/>
+            <label>비밀번호 : </label>
+            <input type="password" name="userPassword" form="enroll"/>
+        </fieldset>
+        <br/><br/>
+
+        <h3>input태그의 type속성</h3>
+        <h4>type="hidden"</h4>
+        <form>
+            <input type="hidden" value="dudu" name="hiddenValue"/>    
+            <input type="submit" name="클릭">
+        </form>
+
+        <h4>type="text"</h4>
+        <form>
+            <input type="text" size="20" maxlength="5" autofocus required />
+            <input type="submit"/>
+        </form>
+
+        <h4>버튼유형 : type="button" | "submit" | "reset"</h4>
+        <form>
+            <input type="text" name="buttonTest"><br/>
+            <input type="button" value="버튼" name="buttonTest"/>
+            <input type="submit" name="test" >
+            <input type="reset" name="test2"/>
+            <br/><br/>
+
+            <button type="button">일반 버튼</button>
+            <button>제출 버튼</button> <!-- form태그 안에서의 button태그는 input태그의 type="submit"과 같음-->
+            <button type="submit">제출 버튼2</button>
+            <button type="reset">취소 버튼</button>
+        </form>
+
+
+        <h4>체크 유형 : type="radio" | "checkbox"</h4>
+        <form>
+            <label>성별 : </label>
+            <input type="radio" name="gender" value="male" id="M"/> <label for="M">남자</label>
+            <input type="radio" name="gender" value="female" checked id="F"/> <label for="F">여자</label>
+
+            <br/>
+            <input type="submit" value="확인">
+        </form>
+        <br/><br/>
+
+        <form>
+            <label>취미 : </label>
+            <input type="checkbox" name="hobby" value="soccer" id="S"><label for="S">축구</label>
+            <input type="checkbox" name="hobby" value="baseball"><label>야구</label>
+            <input type="checkbox" name="hobby" value="tenis"><label>테니스</label>
+
+            <br/>
+            <input type="submit" value="확인">
+
+        </form>
+        
+        <h4>파일 유형 : type="file" | "image"</h4>
+        <form>
+            <label>파일 선택 : </label>
+            <input type="file" name="inputFile" accept=".html, .jpg" multiple>
+            <br>
+            <label>이미지 submit버튼 : </label>
+        <!--    <input type="image" src="sample/image/river1.PNG" width="100px" height="100px"> -->
+
+
+        </form>
+
+        <h1>HTML5에서 추가된 input태그</h1>
+        <h3>type ="search", type="url", type="email", type="tel"</h3>
+        <form>
+            <label>검색어 : </label> <input type="search" size="30"> <br/>
+            <label>URL : </label> <input type="url" value="http://"> <br/>
+            <label>이메일 : </label> <input type="email" placeholder="@를 포함하여 입력하세요" size="30"> <br/>
+            <label>전화번호 : </label> <input type="tel"> <br/>
+
+            <input type="submit">          
+        </form>
+
+        <h3>type="number", type="range"</h3>
+        <form>
+            <label>구매 수량 : </label>
+            <input type="number" step="10" min="0" max="100">
+            <br/>
+            <label>구매 수량 :</label>
+            <input type="number" step="10" min="0" max="100000000">
+            <br/>
+            <label>행복 수치 : </label>
+            <input type="range" max="5000">
+        </form>
+
+        <h3>날짜(시간)관련 : date, week, month, time, datetime-local, datetime</h3>
+        <form>
+            <label>date : </label>
+            <input type="date" name="inputDate">
+            <br>
+            
+            <label>week : </label>
+            <input type="week" name="inputWeek">
+            <br>
+
+            <label>month : </label>
+            <input type="month" name="inputMonth">
+            <br>
+
+            <label>time : </label>
+            <input type="time" name="inputTime">
+            <br>
+
+            <label>datetime-local : </label>
+            <input type="datetime-local" name="inputDatetime-local">
+            <br>
+
+            <label>datetime : </label>
+            <input type="datetime" name="inputDatetime">
+            <br>
+
+            <input type="submit" value="보내기">
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <h1>실험실</h1>
+        <form>
+            <input type="text" size="20" name="myTest"/>
+            <input type="submit" >
+
+
+        </form>
+    </body>
+
+
+
+
+</html>
